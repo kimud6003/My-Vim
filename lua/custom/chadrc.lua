@@ -7,9 +7,14 @@ local M = {}
 
 M.ui = {
   theme = "tokyonight",
-    lspconfig = {
-    setup_lspconf = "custom.plugins.lspconfig",
-  },
 }
+M.plugins = {
+   options = {
+      lspconfig = {
+         setup_lspconf = "custom.plugins.lspconfig",
+      },
+   },
+}
+
 
 return M
