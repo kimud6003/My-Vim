@@ -5,6 +5,16 @@ if not present then
 end
 
 local plugins = {
+   ["iamcco/markdown-preview.nvim"] = {
+     install = function()
+       vim.fn["mkdp#util#install"]()
+     end,
+     run = "cd app && npm install",
+     setup = function()
+       vim.g.mkdp_filetypes = { "markdown" }
+     end,
+     ft = { "markdown" },
+   },
    ["nvim-lua/plenary.nvim"] = {},
    ["lewis6991/impatient.nvim"] = {},
 
@@ -13,7 +23,6 @@ local plugins = {
    },
 
    ["NvChad/extensions"] = {},
-
    ["NvChad/base46"] = {
       after = "packer.nvim",
       config = function()
