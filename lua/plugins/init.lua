@@ -5,16 +5,13 @@ if not present then
 end
 
 local plugins = {
-   ["iamcco/markdown-preview.nvim"] = {
-     install = function()
-       vim.fn["mkdp#util#install"]()
-     end,
-     run = "cd app && npm install",
-     setup = function()
-       vim.g.mkdp_filetypes = { "markdown" }
-     end,
-     ft = { "markdown" },
-   },
+   ["iamcco/markdown-preview.nvim"] = {},
+    ["jose-elias-alvarez/null-ls.nvim"] = {
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugins.null-ls").setup()
+      end,
+    },
    ["nvim-lua/plenary.nvim"] = {},
    ["lewis6991/impatient.nvim"] = {},
 
