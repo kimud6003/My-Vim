@@ -6,12 +6,12 @@ end
 
 local plugins = {
    ["iamcco/markdown-preview.nvim"] = {},
-    ["jose-elias-alvarez/null-ls.nvim"] = {
+   ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
          require("custom.plugins.null-ls").setup()
       end,
-    },
+   },
    ["nvim-lua/plenary.nvim"] = {},
    ["lewis6991/impatient.nvim"] = {},
 

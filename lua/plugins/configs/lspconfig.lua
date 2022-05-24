@@ -19,8 +19,8 @@ win.default_opts = function(options)
 end
 
 function M.on_attach(client, _)
-   client.resolved_capabilities.document_formatting = false
-   client.resolved_capabilities.document_range_formatting = false
+   client.resolved_capabilities.document_formatting = true
+   client.resolved_capabilities.document_range_formatting = true
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
