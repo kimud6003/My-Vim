@@ -1,5 +1,4 @@
 local plugins = {
-<<<<<<< HEAD
    ["iamcco/markdown-preview.nvim"] = {},
    ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
@@ -7,9 +6,6 @@ local plugins = {
          require("custom.plugins.null-ls").setup()
       end,
    },
-=======
-
->>>>>>> OrignChad
    ["nvim-lua/plenary.nvim"] = {},
    ["lewis6991/impatient.nvim"] = {},
    ["wbthomason/packer.nvim"] = {},
