@@ -5,6 +5,7 @@ if not present then
 end
 
 local M = {}
+local utils = require "core.utils"
 
 require("plugins.configs.others").lsp_handlers()
 
@@ -18,9 +19,18 @@ win.default_opts = function(options)
    return opts
 end
 
+<<<<<<< HEAD
 function M.on_attach(client, _)
    client.resolved_capabilities.document_formatting = true
    client.resolved_capabilities.document_range_formatting = true
+=======
+M.on_attach = function(client, bufnr)
+   client.resolved_capabilities.document_formatting = false
+   client.resolved_capabilities.document_range_formatting = false
+
+   local lsp_mappings = utils.load_config().mappings.lspconfig
+   utils.load_mappings({ lsp_mappings }, { buffer = bufnr })
+>>>>>>> OrignChad
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -65,7 +75,7 @@ lspconfig.sumneko_lua.setup {
 }
 
 -- requires a file containing user's lspconfigs
-local addlsp_confs = nvchad.load_config().plugins.options.lspconfig.setup_lspconf
+local addlsp_confs = utils.load_config().plugins.options.lspconfig.setup_lspconf
 
 if #addlsp_confs ~= 0 then
    require(addlsp_confs).setup_lsp(M.on_attach, capabilities)
