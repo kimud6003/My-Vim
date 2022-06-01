@@ -1,5 +1,14 @@
 <h1 align="center">NvChad</h1>
 
+```bash
+git clone https://github.com/kimud6003/NvChad ~/.config/nvim --depth 1 ; nvim
+cd ~/.local/share/nvim/site/pack/packer/start/
+git clone https://github.com/iamcco/markdown-preview.nvim.git
+cd markdown-preview.nvim
+yarn install
+yarn build
+```
+
 <div align="center">
 	<a href="https://nvchad.github.io/">Home</a>
   <span> • </span>
