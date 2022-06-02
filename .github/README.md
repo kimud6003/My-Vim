@@ -3,6 +3,7 @@
 - Docker
 ```bash
   docker run -w /root -it alpine:edge sh -uelic '
+    tail -f /dev/null
     apk add git nodejs neovim ripgrep alpine-sdk --update
     git clone https://github.com/kimud6003/NvChad  ~/.config/nvim
     nvim
