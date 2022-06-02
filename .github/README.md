@@ -1,5 +1,14 @@
 <h1 align="center">NvChad</h1>
 
+- Docker
+```bash
+  docker run -w /root -it --rm alpine:edge sh -uelic '
+    apk add git nodejs neovim ripgrep alpine-sdk --update
+    git clone https://github.com/kimud6003/NvChad  ~/.config/nvim
+    nvim
+    '
+```
+
 - Mac
 ```bash
 git clone https://github.com/kimud6003/NvChad ~/.config/nvim --depth 1 ; nvim
