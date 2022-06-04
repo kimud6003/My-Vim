@@ -111,7 +111,9 @@ M.comment = function()
       return
    end
 
-   nvim_comment.setup()
+   local options = {}
+   options = load_override(options, "numToStr/Comment.nvim")
+   nvim_comment.setup(options)
 end
 
 M.luasnip = function()
@@ -121,10 +123,13 @@ M.luasnip = function()
       return
    end
 
-   luasnip.config.set_config {
+   local options = {
       history = true,
       updateevents = "TextChanged,TextChangedI",
    }
+
+   options = load_override(options, "L3MON4D3/LuaSnip")
+   luasnip.config.set_config(options)
 
    require("luasnip.loaders.from_vscode").lazy_load()
 end
@@ -196,6 +201,64 @@ M.lsp_handlers = function()
          vim.api.nvim_echo({ { msg } }, true, {})
       end
    end
+
+   -- credits to @Malace : https://www.reddit.com/r/neovim/comments/ql4iuj/rename_hover_including_window_title_and/
+   -- This is modified version of the above snippet
+   vim.lsp.buf.rename = {
+      float = function()
+         local currName = vim.fn.expand "<cword>" .. " "
+
+         local win = require("plenary.popup").create(currName, {
+            title = "Renamer",
+            style = "minimal",
+            borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+            relative = "cursor",
+            borderhighlight = "RenamerBorder",
+            titlehighlight = "RenamerTitle",
+            focusable = true,
+            width = 25,
+            height = 1,
+            line = "cursor+2",
+            col = "cursor-1",
+         })
+
+         local map_opts = { noremap = true, silent = true }
+
+         vim.cmd "normal w"
+         vim.cmd "startinsert"
+
+         vim.api.nvim_buf_set_keymap(0, "i", "<Esc>", "<cmd>stopinsert | q!<CR>", map_opts)
+         vim.api.nvim_buf_set_keymap(0, "n", "<Esc>", "<cmd>stopinsert | q!<CR>", map_opts)
+
+         vim.api.nvim_buf_set_keymap(
+            0,
+            "i",
+            "<CR>",
+            "<cmd>stopinsert | lua vim.lsp.buf.rename.apply(" .. currName .. "," .. win .. ")<CR>",
+            map_opts
+         )
+
+         vim.api.nvim_buf_set_keymap(
+            0,
+            "n",
+            "<CR>",
+            "<cmd>stopinsert | lua vim.lsp.buf.rename.apply(" .. currName .. "," .. win .. ")<CR>",
+            map_opts
+         )
+      end,
+
+      apply = function(curr, win)
+         local newName = vim.trim(vim.fn.getline ".")
+         vim.api.nvim_win_close(win, true)
+
+         if #newName > 0 and newName ~= curr then
+            local params = vim.lsp.util.make_position_params()
+            params.newName = newName
+
+            vim.lsp.buf_request(0, "textDocument/rename", params)
+         end
+      end,
+   }
 end
 
 M.gitsigns = function()
@@ -205,7 +268,7 @@ M.gitsigns = function()
       return
    end
 
-   gitsigns.setup {
+   local options = {
       signs = {
          add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
          change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
@@ -214,6 +277,9 @@ M.gitsigns = function()
          changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
       },
    }
+   options = load_override(options, "lewis6991/gitsigns.nvim")
+
+   gitsigns.setup(options)
 end
 
 return M
