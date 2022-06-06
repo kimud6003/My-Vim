@@ -42,12 +42,15 @@ yarn build
         <a href="https://nvchad.github.io/Extras">Extras</a>
   <p></p>
 </div> 
-## uninstall
-```bash
-rm -rf ~/.config/nvim
-rm -rf ~/.local/share/nvim
-rm -rf ~/.cache/nvim
+
+## uninstall  
+
+```bash  
+rm -rf ~/.config/nvim  
+rm -rf ~/.local/share/nvim  
+rm -rf ~/.cache/nvim  
 ```
+
 <div align="center">
  
 [![Super Linter](https://img.shields.io/github/workflow/status/NvChad/NvChad/Super-Linter/main?style=flat-square&logo=github&label=Build&color=8DBBE9)]()
