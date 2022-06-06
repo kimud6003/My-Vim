@@ -8,7 +8,7 @@ local M = {}
 M.mappings = require "custom.mappings"
 
 M.ui = {
-  theme = "tokyonight",
+  theme = "aquarium",
 }
 M.plugins = {
    options = {
@@ -16,6 +16,7 @@ M.plugins = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
+   user = require "custom.plugins",
 }
 
 
