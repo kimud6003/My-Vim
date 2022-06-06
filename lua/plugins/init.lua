@@ -2,7 +2,6 @@ local plugins = {
    ["github/copilot.vim"] = {},
    ["zbirenbaum/copilot.lua"] = {
       config = function ()
-        -- require("custom.plugins.copilot").setup()
         vim.defer_fn(function() require("copilot").setup() end, 100)
       end,
    },

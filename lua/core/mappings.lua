@@ -228,7 +228,7 @@ M.nvimtree = {
 
    n = {
       -- toggle
-      ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+      -- ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
 
       -- focus
       ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "   focus nvimtree" },
@@ -247,11 +247,8 @@ M.telescope = {
       ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
       -- git
-      ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
-      ["<leader>gd"] = { "<cmd> Telescope git_bcommits<CR>", "  git bcommits" },
-      ["<leader>gb"] = { "<cmd> Telescope git_branches<CR>", "  git branches" },
-      ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "  git status" },
-      ["<leader>gt"] = { "<cmd> Telescope git_stash <CR>", "  git stash" },
+      ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "    git commits" },
+      ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
 
       -- pick a hidden term
       ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },

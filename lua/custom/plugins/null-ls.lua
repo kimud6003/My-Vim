@@ -3,16 +3,11 @@ local b = null_ls.builtins
 
 local sources = {
 
+   -- prettier
    b.formatting.prettier,
-   -- b.formatting.deno_fmt,
-
    -- Lua
    b.formatting.stylua,
    b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
-
-   -- -- Shell
-   -- b.formatting.shfmt,
-   -- b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- black
    b.formatting.black,
