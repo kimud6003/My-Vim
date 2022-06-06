@@ -1,7 +1,6 @@
 local plugins = {
    ["github/copilot.vim"] = {},
    ["zbirenbaum/copilot.lua"] = {
-      after = 'feline.nvim', --whichever statusline plugin you use here
       config = function ()
         -- require("custom.plugins.copilot").setup()
         vim.defer_fn(function() require("copilot").setup() end, 100)
