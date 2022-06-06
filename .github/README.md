@@ -1,5 +1,7 @@
 <h1 align="center">NvChad</h1>
 
+## install
+
 - Docker
 ```bash
   docker run -w /root -it alpine:edge sh -uelic '
@@ -40,6 +42,14 @@ yarn build
         <a href="https://nvchad.github.io/Extras">Extras</a>
   <p></p>
 </div> 
+
+## uninstall  
+
+```bash  
+rm -rf ~/.config/nvim  
+rm -rf ~/.local/share/nvim  
+rm -rf ~/.cache/nvim  
+```
 
 <div align="center">
  
