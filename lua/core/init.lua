@@ -17,5 +17,8 @@ autocmd("BufUnload", {
    end,
 })
 
--- load statusline
-vim.opt.statusline = "%!v:lua.require'ui.statusline'.run()"
+-- Don't auto commenting new lines
+autocmd('BufEnter', {
+  pattern = '*',
+  command = 'set fo-=c fo-=r fo-=o'
+})

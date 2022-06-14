@@ -28,9 +28,13 @@ local sep_r = sep_style[user_sep_style]["right"]
 
 local modes = {
    ["n"] = { "NORMAL", "St_NormalMode" },
+   ["niI"] = { "NORMAL i", "St_NormalMode" },
+   ["niR"] = { "NORMAL r", "St_NormalMode" },
+   ["niV"] = { "NORMAL v", "St_NormalMode" },
    ["no"] = { "N-PENDING", "St_NormalMode" },
    ["i"] = { "INSERT", "St_InsertMode" },
    ["ic"] = { "INSERT", "St_InsertMode" },
+   ["ix"] = { "INSERT completion", "St_InsertMode" },
    ["t"] = { "TERMINAL", "St_TerminalMode" },
    ["nt"] = { "NTERMINAL", "St_NTerminalMode" },
    ["v"] = { "VISUAL", "St_VisualMode" },
@@ -146,20 +150,27 @@ M.LSP_Diagnostics = function()
 end
 
 M.LSP_status = function()
-   local lsp_attached = next(vim.lsp.buf_get_clients()) ~= nil
-   local content = lsp_attached and "   LSP ~ " .. vim.lsp.get_active_clients()[1].name .. " " or false
+   local clients = vim.lsp.get_active_clients()
+   local name = false
+   for _, client in ipairs(clients) do
+     if client.attached_buffers[vim.api.nvim_get_current_buf()] then
+       name = client.name
+       break
+     end
+   end
+   local content = name and "   LSP ~ " .. name .. " " or false
    return content and ("%#St_LspStatus#" .. content) or ""
 end
 
 M.cwd = function()
-   local left_sep = "%#ST_EmptySpace2#" .. sep_l .. "%#St_cwd_sep#" .. sep_l
-   local dir_icon = "%#St_cwd_icon#" .. " "
+   local left_sep = "%#St_cwd_sep#" .. sep_l
+   local dir_icon = "%#St_cwd_icon#" .. " "
    local dir_name = "%#St_cwd_text#" .. " " .. fn.fnamemodify(fn.getcwd(), ":t") .. " "
    return (vim.o.columns > 120 and left_sep .. dir_icon .. dir_name) or ""
 end
 
 M.cursor_position = function()
-   local left_sep = "%#ST_EmptySpace#" .. sep_l .. "%#St_pos_sep#" .. sep_l
+   local left_sep = "%#St_pos_sep#" .. sep_l
    local icon = "%#St_pos_icon#" .. " "
 
    local current_line = fn.line "."
