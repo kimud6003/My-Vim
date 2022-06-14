@@ -32,6 +32,7 @@
 
 - Mac
 ```bash
+brew install nvim
 git clone https://github.com/kimud6003/NvChad ~/.config/nvim; nvim
 cd ~/.local/share/nvim/site/pack/packer/start/
 git clone https://github.com/iamcco/markdown-preview.nvim.git
