@@ -94,9 +94,6 @@ yarn install
 yarn build
 ``` 
 
-
-<<<<<<< HEAD
-=======
 <details><summary> <b>Images (Click to expand!)</b></summary>
 
 ![main themes](https://github.com/NvChad/nvchad.github.io/blob/src/static/img/screenshots/four_Themes.png)
@@ -191,4 +188,4 @@ I'm (@siduck) really very sorry to remove the previous charity links but I had t
 
 - [Elianiva](https://github.com/elianiva) helped me with NeoVim Lua related issues many times, NvChad wouldn't exist without his help at all as he helped me in my initial neovim journey!
 - @lorvethe for making the beautiful NvChad logo.
->>>>>>> OrignChad
+
