@@ -39,6 +39,7 @@ git clone https://github.com/iamcco/markdown-preview.nvim.git
 cd markdown-preview.nvim
 yarn install
 yarn build
+cd
 ```
 - window
 ```bash
