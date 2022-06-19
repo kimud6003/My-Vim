@@ -16,6 +16,7 @@ return{
     },
     ["github/copilot.vim"] = {},
     ["zbirenbaum/copilot.lua"] = {
+      require("copilot_cmp").setup(),
       config = function()
         vim.defer_fn(function() require("copilot").setup() end, 100)
       end,
