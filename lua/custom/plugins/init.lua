@@ -4,8 +4,14 @@
 
 return{
     ["booperlv/nvim-gomove"] = {
-      setup = function()
-        local tmp, gomove = pcall(require, "gomove")
+
+      config = function()
+        local gomoveCheck, gomove = pcall(require, "gomove")
+
+        if not gomoveCheck then
+          vim.notify("Gomove not found\n\n")
+        end
+
         gomove.setup {
           map_defaults = true,
           reindent = true,
@@ -14,23 +20,21 @@ return{
         }
       end,
     },
-    ["github/copilot.vim"] = {},
-    ["zbirenbaum/copilot.lua"] = {
-      require("copilot_cmp").setup(),
-      config = function()
-        vim.defer_fn(function() require("copilot").setup() end, 100)
-      end,
+
+    ["iamcco/markdown-preview.nvim"] = {
+      run = function() vim.fn["mkdp#util#install"]() end,
+      run2 = "cd app && npm install",
+      setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+      ft = { "markdown" },
     },
-    ["zbirenbaum/copilot-cmp"] = {
-      after = { "copilot.lua", "nvim-cmp" },
-    },
-    ["iamcco/markdown-preview.nvim"] = {},
+
     ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
         require("custom.plugins.null-ls").setup()
       end,
     },
+
     ["kdheepak/lazygit.nvim"] = {}
   }
 
