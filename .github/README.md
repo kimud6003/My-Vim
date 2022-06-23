@@ -81,7 +81,10 @@ rm -rf ~/.cache/nvim
 <img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/screenshots/main.png"> 
 <img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/screenshots/rxyhn1.png">
 
-## Custom Plugin
+## What is it?
+
+- NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as telescope, nvim-tree, bufferline etc well to provide an aesthetic UI experience. 
+>>>>>>> origin/OrignChad
 
 ### Markdown Preview
 
