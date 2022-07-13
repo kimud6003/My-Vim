@@ -9,7 +9,7 @@ local override = require "custom.override"
 M.mappings = require "custom.mappings"
 
 M.ui = {
-  theme = "aquarium",
+  theme = "tokyonight",
 }
 M.plugins = {
    override = {

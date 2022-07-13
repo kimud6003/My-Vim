@@ -3,6 +3,8 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
+   ['rcarriga/nvim-notify'] ={},
+
    ['karb94/neoscroll.nvim'] = {
       module = "neoscroll",
       config = function()
