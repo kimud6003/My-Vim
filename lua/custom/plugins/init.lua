@@ -2,8 +2,7 @@
 
 -- load your globals, autocmds here or anything .__.
 
-return {
-
+return{
   ['dsznajder/vscode-es7-javascript-react-snippets'] = {
     run = 'yarn install --frozen-lockfile && yarn compile'
   },
