@@ -14,7 +14,7 @@
 [![Matrix](https://img.shields.io/badge/Matrix-40aa8b.svg?style=flat-square&logo=Matrix&logoColor=white)](https://matrix.to/#/#nvchad:matrix.org)
 [![Telegram](https://img.shields.io/badge/Telegram-blue.svg?style=flat-square&logo=Telegram&logoColor=white)](https://t.me/DE_WM)
 
-  </div>
+</div>
 
 	
 	
@@ -34,7 +34,16 @@
 ```bash
 git clone https://github.com/kimud6003/NvChad ~/.config/nvim; nvim
 ```
+
+## uninstall  
+
+```bash  
+rm -rf ~/.config/nvim  
+rm -rf ~/.local/share/nvim  
+rm -rf ~/.cache/nvim  
 ```
+
+
 <div align="center">
 	<a href="https://nvchad.github.io/">Home</a>
   <span> • </span>
@@ -48,13 +57,7 @@ git clone https://github.com/kimud6003/NvChad ~/.config/nvim; nvim
   <p></p>
 </div> 
 
-## uninstall  
 
-```bash  
-rm -rf ~/.config/nvim  
-rm -rf ~/.local/share/nvim  
-rm -rf ~/.cache/nvim  
-```
 
 ## Showcase
 
@@ -69,7 +72,6 @@ rm -rf ~/.cache/nvim
 ## What is it?
 
 - NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as telescope, nvim-tree, bufferline etc well to provide an aesthetic UI experience. 
->>>>>>> origin/OrignChad
 
 ### Markdown Preview
 
@@ -122,11 +124,11 @@ Adds indentline:
 <kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline.png"></kbd><hr>
 <kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline_modes.png"></kbd><hr>
 
-<h3> Nvim-bufferline.lua </h3>
+<h3> Tabufline (our own pertab bufferline) </h3>
 
-A snazzy bufferline for Neovim
-
-<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/bufferline.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline1.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline2.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline3.png"></kbd><hr>
 
 <h3> Nvim-web-devicons </h3>
 

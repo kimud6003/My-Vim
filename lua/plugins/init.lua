@@ -3,7 +3,7 @@ vim.cmd "packadd packer.nvim"
 local plugins = {
    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
    ["wbthomason/packer.nvim"] = {},
-   ["NvChad/extensions"] = {},
+   ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
 
    ["NvChad/base46"] = {
       config = function()
@@ -26,17 +26,6 @@ local plugins = {
       module = "nvim-web-devicons",
       config = function()
          require("plugins.configs.others").devicons()
-      end,
-   },
-
-   ["akinsho/bufferline.nvim"] = {
-      tag = "v2.*",
-      opt = true,
-      setup = function()
-         require("core.lazy_load").bufferline()
-      end,
-      config = function()
-         require "plugins.configs.bufferline"
       end,
    },
 
@@ -74,7 +63,7 @@ local plugins = {
 
    -- git stuff
    ["lewis6991/gitsigns.nvim"] = {
-      opt = true,
+      ft = "gitcommit",
       setup = function()
          require("core.lazy_load").gitsigns()
       end,
