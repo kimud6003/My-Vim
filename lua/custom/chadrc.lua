@@ -15,6 +15,9 @@ M.plugins = {
    override = {
       ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
       ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+      ["hrsh7th/nvim-cmp"] = override.cmp,
+      ["nvim-telescope/telescope.nvim"] = override.telescope,
+      ["lewis6991/gitsigns.nvim"] = override.gitsigns,
    },
    options = {
       lspconfig = {

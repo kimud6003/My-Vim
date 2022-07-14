@@ -37,7 +37,7 @@ local options = {
          winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
       },
       documentation = {
-         border = border "CmpBorder",
+         border = border "CmpDocBorder",
       },
    },
    snippet = {
@@ -46,7 +46,6 @@ local options = {
       end,
    },
    formatting = {
-      fields = {"kind","abbr","menu"},
       format = function(_, vim_item)
          local icons = require("ui.icons").lspkind
          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)

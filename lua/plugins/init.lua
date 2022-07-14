@@ -1,6 +1,7 @@
 vim.cmd "packadd packer.nvim"
 
 local plugins = {
+
    ["nvim-lua/plenary.nvim"] = { module = "plenary" },
    ["wbthomason/packer.nvim"] = {},
    ["NvChad/extensions"] = { module = { "telescope", "nvchad" } },
@@ -14,6 +15,8 @@ local plugins = {
          end
       end,
    },
+
+   ["Nvchad/ui"] = {},
 
    ["NvChad/nvterm"] = {
       module = "nvterm",
@@ -90,6 +93,7 @@ local plugins = {
          require "plugins.configs.lspconfig"
       end,
    },
+
    -- load luasnips + cmp related in insert mode only
 
    ["rafamadriz/friendly-snippets"] = {

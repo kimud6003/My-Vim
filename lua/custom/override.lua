@@ -1,6 +1,34 @@
 
 local M = {}
 
+local function border(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
+
+M.gitsigns = {
+   signs = {
+         add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+         change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+         delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+         topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+         changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+      },
+   current_line_blame = true,
+}
+
+M.telescope ={
+   extensions_list = { "themes", "terms", "notify" },
+}
+
 M.treesitter = {
    ensure_installed = {
       "html",
@@ -28,6 +56,21 @@ M.nvimtree = {
    },
 }
 
+M.cmp = {
+   window= {
+      documentation = {
+         border = border "CmpBorder",
+      },
+   },
+   formatting = {
+      fields = {"kind","abbr","menu"},
+      format = function(_, vim_item)
+         local icons = require("ui.icons").lspkind
+         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+         return vim_item
+      end,
+   },
+}
 
 
 return M

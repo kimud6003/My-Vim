@@ -3,21 +3,79 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-   ['rcarriga/nvim-notify'] ={},
 
-   ['karb94/neoscroll.nvim'] = {
-      module = "neoscroll",
-      config = function()
-          local present, scroll= pcall(require, "neoscroll")
-
+     ['phaazon/hop.nvim']={
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+          local present, hop= pcall(require, "hop")
             if not present then
                return
             end
-
-            scroll.setup()
+          hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+     },
+     ["folke/trouble.nvim"]={
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+          local present, trouble= pcall(require, "trouble")
+            if not present then
+               return
+            end
+          trouble.setup {}
+        end
+     },
+-- Scorllbar 생성 
+   ["petertriho/nvim-scrollbar"]={
+      config = function()
+          local present, scrollBar= pcall(require, "scrollbar")
+            if not present then
+               return
+            end
+            scrollBar.setup()
       end
    },
 
+-- :를 => command라인 생성 
+   ['VonHeikemen/fine-cmdline.nvim']={
+      requires = {
+          {'MunifTanjim/nui.nvim'}
+      },
+      config = function()
+          local present, cmdline = pcall(require, "fine-cmdline")
+          if not present then
+             return
+          end
+          cmdline.setup({
+             position = {
+                row = '50%',
+                col = '50%',
+              },
+             size = {
+                width = "60%",
+                height = 2
+             }
+          })
+      end
+   },
+
+-- notify 생성
+   ['rcarriga/nvim-notify'] ={
+      config = function()
+          local present, notify= pcall(require, "notify")
+            if not present then
+               return
+            end
+            notify.setup{
+               stages = 'fade_in_slide_out',
+               background_colour = 'FloatShadow',
+               itmeout = 3000,
+
+            }
+          vim.notify = notify
+      end
+   },
+
+-- shade 생성
    ["andreadev-it/shade.nvim"] = {
       module = "shade",
       config = function()
@@ -35,6 +93,7 @@ return{
       end,
    },
 
+   -- auto tag
    ["windwp/nvim-ts-autotag"] = {
       ft = { "html", "javascriptreact" },
       after = "nvim-treesitter",
@@ -47,6 +106,7 @@ return{
       end,
    },
 
+    -- auto save
    ["Pocco81/AutoSave.nvim"] = {
       module = "autosave",
       config = function ()
@@ -57,12 +117,13 @@ return{
       end
    },
 
+   -- react-snippet
    ['dsznajder/vscode-es7-javascript-react-snippets'] = {
     run = 'yarn install --frozen-lockfile && yarn compile'
    },
 
+   -- visualmode 들여쓰기
    ["booperlv/nvim-gomove"] = {
-
     config = function()
       local gomoveCheck, gomove = pcall(require, "gomove")
 
@@ -79,6 +140,7 @@ return{
     end,
    },
 
+   -- markdown preview
    ["iamcco/markdown-preview.nvim"] = {
     run = function() vim.fn["mkdp#util#install"]() end,
     run2 = "cd app && npm install",
@@ -86,6 +148,7 @@ return{
     ft = { "markdown" },
    },
 
+   -- Formatter
    ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()

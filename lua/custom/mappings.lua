@@ -11,4 +11,27 @@ M.gitsings = {
    },
 }
 
+M.general = {
+   n = {
+      [":"] = {"<cmd>FineCmdline<CR>","FineCmdline"},
+   }
+}
+
+M.trouble = {
+   n = {
+      ["<leader>qw"] = { "<cmd> TroubleToggle  <CR>", "  trouble space" },
+      ["<leader>qd"] = { "<cmd> TroubleToggle document_diagnostics  <CR>", "  trouble document" },
+   },
+}
+
+M.telescope = {
+   n = {
+      -- histroy
+      ["<leader>fh"] = {
+         "<cmd> : Telescope notify <CR>", " Notify histroy"   },
+   },
+}
+
+
+
 return M
