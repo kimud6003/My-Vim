@@ -3,7 +3,7 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-
+--   hop 
      ['phaazon/hop.nvim']={
         branch = 'v2', -- optional but strongly recommended
         config = function()
@@ -34,6 +34,13 @@ return{
             scrollBar.setup()
       end
    },
+
+-- /를 =>  Search 라인 생성 
+  ['VonHeikemen/searchbox.nvim']={
+     requires = {
+       {'MunifTanjim/nui.nvim'}
+     }
+  },
 
 -- :를 => command라인 생성 
    ['VonHeikemen/fine-cmdline.nvim']={
