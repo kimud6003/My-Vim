@@ -6,10 +6,16 @@ local override = require "custom.override"
 -- make sure you maintain the structure of `core/default_config.lua` here,
 -- example of changing theme:
 
+M.options = {
+   user = function()
+        vim.opt.tabstop = 4
+   end,
+}
+
 M.mappings = require "custom.mappings"
 
 M.ui = {
-  theme = "tokyonight",
+  theme = "tokyodark",
 }
 M.plugins = {
    override = {

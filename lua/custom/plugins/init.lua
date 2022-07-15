@@ -126,7 +126,14 @@ return{
 
    -- react-snippet
    ['dsznajder/vscode-es7-javascript-react-snippets'] = {
-    run = 'yarn install --frozen-lockfile && yarn compile'
+    run = 'yarn install --frozen-lockfile && yarn compile',
+      config = function ()
+         -- local present,autosave = pcall(require, "")
+         -- if present then
+         --    autosave.setup()
+         -- end
+      end
+
    },
 
    -- visualmode 들여쓰기
