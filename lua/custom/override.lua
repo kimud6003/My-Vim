@@ -38,6 +38,7 @@ M.treesitter = {
       "json",
       "markdown",
       "python",
+      "java"
    },
 }
 

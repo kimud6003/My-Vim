@@ -8,7 +8,13 @@ local override = require "custom.override"
 
 M.options = {
    user = function()
-        vim.opt.tabstop = 4
+      if os.getenv('OS') == "Windows_NT" then
+         vim.opt.shell="pwsh "
+         vim.opt.shellpipe="|"
+         vim.opt.shellxquote=""
+         vim.opt.shellcmdflag="-NoLogo -ExecutionPolicy RemoteSigned -Command"
+      end
+
    end,
 }
 
