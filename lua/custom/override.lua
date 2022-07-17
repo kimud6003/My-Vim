@@ -65,11 +65,6 @@ M.cmp = {
    },
    formatting = {
       fields = {"kind","abbr","menu"},
-      format = function(_, vim_item)
-         local icons = require("ui.icons").lspkind
-         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-         return vim_item
-      end,
    },
 }
 
