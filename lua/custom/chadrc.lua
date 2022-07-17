@@ -14,7 +14,18 @@ M.options = {
          vim.opt.shellxquote=""
          vim.opt.shellcmdflag="-NoLogo -ExecutionPolicy RemoteSigned -Command"
       end
-
+      if vim.fn.has "wsl" == 1 then
+        vim.opt.clipboard = {
+          copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf",
+          },
+          paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf",
+          },
+        }
+      end
    end,
 }
 
