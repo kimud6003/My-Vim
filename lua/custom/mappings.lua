@@ -1,5 +1,25 @@
 local M = {}
 
+
+M.java ={
+   i={
+      ["<A-cr>"] = {"<Cmd> lua require'jdtls'.organize_imports() <CR>","import"},
+      ["<A-o>"] = {"<Cmd> lua vim.lsp.buf.code_action()<CR>","code_action"},
+      ["<leader>jv"] = {"<Cmd>lua require('jdtls').extract_variable()<CR>","Extract Var"},
+      ["<leader>jc"] = {"<Cmd>lua require('jdtls').extract_constant()<CR>","Extract Const"}
+   },
+   v={
+      ["<leader>jv"] = {"<Cmd>lua require('jdtls').extract_variable(true)<CR>","Extract Var"},
+      ["<leader>jc"] = {"<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>","Extract Const"}
+   },
+   n={
+      ["<A-o>"] = {"<Cmd> lua vim.lsp.buf.code_action()<CR>","code_action"},
+      ["<A-cr>"] = {"<Cmd> lua require'jdtls'.organize_imports() <CR>","import"},
+      ["<leader>jv"] = {"<Cmd>lua require('jdtls').extract_variable()<CR>","Extract Var"},
+      ["<leader>jc"] = {"<Cmd>lua require('jdtls').extract_constant()<CR>","Extract Const"}
+   }
+}
+
 M.gitsings = {
    n = {
       ["<leader>g"] = {

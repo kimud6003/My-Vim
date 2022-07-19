@@ -3,6 +3,8 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
+     ['mfussenegger/nvim-jdtls']={},
+     ['mfussenegger/nvim-dap']={},
 --   hop 
      ['phaazon/hop.nvim']={
         branch = 'v2', -- optional but strongly recommended
