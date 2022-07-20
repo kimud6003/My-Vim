@@ -3,7 +3,11 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-     ['mfussenegger/nvim-jdtls']={},
+     ['mfussenegger/nvim-jdtls']={
+       config = function()
+          require "custom.plugins.java"
+       end,
+     },
      ['mfussenegger/nvim-dap']={},
 --   hop 
      ['phaazon/hop.nvim']={
