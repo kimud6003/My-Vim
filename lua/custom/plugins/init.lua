@@ -3,12 +3,22 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-     ['mfussenegger/nvim-jdtls']={
-       config = function()
-          require "custom.plugins.java"
-       end,
+     ['mfussenegger/nvim-jdtls']={},
+
+     ['mfussenegger/nvim-dap']={
+          config = function()
+             require('custom.plugins.dap')
+          end
      },
-     ['mfussenegger/nvim-dap']={},
+
+     ["rcarriga/nvim-dap-ui"]={
+        requires = {"mfussenegger/nvim-dap"},
+          config = function()
+             local present2, dapui= pcall(require, "dapui")
+             local right =  require"custom.plugins.dapui"
+             dapui.setup(right)
+         end
+     },
 --   hop 
      ['phaazon/hop.nvim']={
         branch = 'v2', -- optional but strongly recommended
@@ -47,29 +57,6 @@ return{
        {'MunifTanjim/nui.nvim'}
      }
   },
-
--- :를 => command라인 생성 
-   ['VonHeikemen/fine-cmdline.nvim']={
-      requires = {
-          {'MunifTanjim/nui.nvim'}
-      },
-      config = function()
-          local present, cmdline = pcall(require, "fine-cmdline")
-          if not present then
-             return
-          end
-          cmdline.setup({
-             position = {
-                row = '50%',
-                col = '50%',
-              },
-             size = {
-                width = "60%",
-                height = 2
-             }
-          })
-      end
-   },
 
 -- notify 생성
    ['rcarriga/nvim-notify'] ={
