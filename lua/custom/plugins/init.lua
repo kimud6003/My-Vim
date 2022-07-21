@@ -3,7 +3,6 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-     ['mfussenegger/nvim-jdtls']={},
      ['mfussenegger/nvim-dap']={},
 --   hop 
      ['phaazon/hop.nvim']={
@@ -43,29 +42,6 @@ return{
        {'MunifTanjim/nui.nvim'}
      }
   },
-
--- :를 => command라인 생성 
-   ['VonHeikemen/fine-cmdline.nvim']={
-      requires = {
-          {'MunifTanjim/nui.nvim'}
-      },
-      config = function()
-          local present, cmdline = pcall(require, "fine-cmdline")
-          if not present then
-             return
-          end
-          cmdline.setup({
-             position = {
-                row = '50%',
-                col = '50%',
-              },
-             size = {
-                width = "60%",
-                height = 2
-             }
-          })
-      end
-   },
 
 -- notify 생성
    ['rcarriga/nvim-notify'] ={
