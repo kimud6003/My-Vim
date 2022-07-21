@@ -3,7 +3,35 @@
 -- load your globals, autocmds here or anything .__.
 
 return{
-     ['mfussenegger/nvim-dap']={},
+      ['sindrets/diffview.nvim'] = {
+        requires = {
+          {'nvim-lua/plenary.nvim'},
+          {'kyazdani42/nvim-web-devicons'}
+        },
+        after='plenary.nvim',
+        cmd={'DiffviewOpen','DiffviewFileHistory','DiffviewClose','DiffviewToggleFiles','DiffviewFocusFiles','DiffviewRefresh'
+        }
+      },
+
+     ['mfussenegger/nvim-jdtls']={},
+
+     ['mfussenegger/nvim-dap']={
+          config = function()
+             require('custom.plugins.dap')
+          end
+     },
+
+     ["rcarriga/nvim-dap-ui"]={
+        requires = {"mfussenegger/nvim-dap"},
+          config = function()
+             local present, dapui= pcall(require, "dapui")
+               if not present then
+                  return
+               end
+             local right =  require"custom.plugins.dapui"
+             dapui.setup(right)
+         end
+     },
 --   hop 
      ['phaazon/hop.nvim']={
         branch = 'v2', -- optional but strongly recommended

@@ -32,7 +32,7 @@ M.options = {
 M.mappings = require "custom.mappings"
 
 M.ui = {
-  theme = "tokyodark",
+  theme = "nightowl",
 }
 M.plugins = {
    override = {
